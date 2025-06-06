@@ -1,0 +1,27 @@
+name: CI/CD Pipeline for JobOnlineAPI
+
+on:
+  push:
+    branches:
+      - master    # Production
+      - release   # Test Site
+
+jobs:
+  test-runner:
+    name: Test Runner
+    runs-on: self-hosted
+    steps:
+      - name: Debug Environment Variables
+        shell: cmd
+        run: |
+          echo Listing all environment variables:
+          set
+          echo Checking SONAR_TOKEN...
+          if defined SONAR_TOKEN (echo SONAR_TOKEN is defined) else (echo SONAR_TOKEN is not defined)
+        continue-on-error: true
+      - name: Simple Echo
+        shell: cmd
+        run: |
+          echo Hello, World!XX
+          dir
+        continue-on-error: true
