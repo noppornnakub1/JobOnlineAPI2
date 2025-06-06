@@ -3,7 +3,7 @@ name: CI/CD Pipeline for JobOnlineAPI
 on:
   push:
     branches:
-      - master    # Production
+      - main    # Production
       - release   # Test Site
 
 jobs:
